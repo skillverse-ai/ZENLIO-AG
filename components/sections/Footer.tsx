@@ -1,129 +1,111 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { CookiePreferencesButton } from "@/components/cookie-consent/CookiePreferencesButton";
 
 export function Footer() {
   return (
-    <footer className="w-full bg-black text-foreground border-t border-neutral-900 py-16 md:py-24 font-[family-name:var(--font-grift)]">
+    <footer className="w-full bg-black text-foreground border-t border-neutral-900 pt-20 pb-12 font-[family-name:var(--font-grift)]">
       <div className="container px-4 md:px-6 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 items-start mb-16">
+        
+        {/* Top Section: Brand Info + 4 Link Columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16">
           
-          {/* Column 1: LINKS */}
-          <div className="flex flex-col items-start">
-            <h4 className="text-[10px] font-bold tracking-[0.25em] text-neutral-500 uppercase mb-6">Links</h4>
-            <ul className="space-y-4 text-sm font-medium">
-              <li>
-                <Link href="#services" className="hover:text-white text-neutral-400 transition-colors flex items-center gap-1 group">
-                  Services <ArrowUpRight className="w-3.5 h-3.5 text-[#ccff00] opacity-80 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="#work" className="hover:text-white text-neutral-400 transition-colors flex items-center gap-1 group">
-                  Work <ArrowUpRight className="w-3.5 h-3.5 text-[#ccff00] opacity-80 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="#about" className="hover:text-white text-neutral-400 transition-colors flex items-center gap-1 group">
-                  About <ArrowUpRight className="w-3.5 h-3.5 text-[#ccff00] opacity-80 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="hover:text-white text-neutral-400 transition-colors flex items-center gap-1 group">
-                  Contact <ArrowUpRight className="w-3.5 h-3.5 text-[#ccff00] opacity-80 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          {/* Column 2: Description, Email, and Giant Gradient Logo */}
-          <div className="flex flex-col items-center text-center">
-            <p className="text-sm md:text-base text-neutral-400 max-w-sm leading-relaxed mb-6 font-medium">
+          {/* Brand Info (Left Pane) - Spans 4 cols on large screens */}
+          <div className="lg:col-span-4 flex flex-col items-start gap-4">
+            <span className="font-[family-name:var(--font-new-order)] font-bold text-2xl tracking-tight text-white">
+              Zenlio
+            </span>
+            <p className="text-sm text-neutral-400 max-w-xs leading-relaxed">
               We build the operating system your business runs on — site, CRM, and AI automation.
             </p>
-            <a 
-              href="mailto:hello@zenlio.agency" 
-              className="text-sm text-neutral-300 hover:text-white transition-colors flex items-center gap-1 group mb-8 font-semibold"
-            >
-              hello@zenlio.agency <ArrowUpRight className="w-3.5 h-3.5 text-[#ccff00] opacity-80 group-hover:opacity-100 transition-opacity" />
-            </a>
             
-            {/* Giant Text Gradient Logo */}
-            <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter uppercase select-none font-[family-name:var(--font-grift)] bg-clip-text text-transparent bg-gradient-to-b from-[#ccff00] via-[#94bd00] to-transparent leading-none">
-              Zenlio
-            </h2>
+            {/* Get Started Button */}
+            <Link 
+              href="/contact" 
+              className="mt-2 flex items-center gap-3 bg-neutral-950 hover:bg-neutral-900 border border-neutral-800 rounded-xl py-2.5 px-4 transition-colors cursor-pointer group shadow-lg"
+            >
+              <div className="w-6 h-6 bg-[#ccff00] rounded-lg flex items-center justify-center text-black font-extrabold text-[11px] shadow-sm select-none">
+                Z
+              </div>
+              <span className="text-sm font-semibold text-white tracking-wide">
+                Get started
+              </span>
+            </Link>
           </div>
           
-          {/* Column 3: Socials & Legal */}
-          <div className="flex flex-col items-start md:items-end">
-            <div className="flex flex-col items-start min-w-[160px]">
-              
-              {/* SOCIALS */}
-              <h4 className="text-[10px] font-bold tracking-[0.25em] text-neutral-500 uppercase mb-6">Socials</h4>
-              <ul className="space-y-4 text-sm font-medium mb-10">
-                <li>
-                  <Link href="#" className="hover:text-white text-neutral-400 transition-colors flex items-center gap-2.5 group">
-                    <FaInstagram className="w-4 h-4 text-neutral-500 group-hover:text-white transition-colors" />
-                    <span>Instagram</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#ccff00] opacity-80 group-hover:opacity-100 transition-opacity" />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white text-neutral-400 transition-colors flex items-center gap-2.5 group">
-                    <FaLinkedin className="w-4 h-4 text-neutral-500 group-hover:text-white transition-colors" />
-                    <span>LinkedIn</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#ccff00] opacity-80 group-hover:opacity-100 transition-opacity" />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#" className="hover:text-white text-neutral-400 transition-colors flex items-center gap-2.5 group">
-                    <FaXTwitter className="w-4 h-4 text-neutral-500 group-hover:text-white transition-colors" />
-                    <span>X</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-[#ccff00] opacity-80 group-hover:opacity-100 transition-opacity" />
-                  </Link>
-                </li>
+          {/* Link Columns (Right Pane) - Spans 8 cols on large screens */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+            
+            {/* Col 1: Home */}
+            <div className="flex flex-col items-start">
+              <h4 className="text-xs font-semibold text-neutral-500 mb-4 tracking-wider">Home</h4>
+              <ul className="space-y-3 text-sm">
+                <li><Link href="/" className="hover:text-white text-neutral-400 transition-colors">Overview</Link></li>
+                <li><Link href="#services" className="hover:text-white text-neutral-400 transition-colors">Features</Link></li>
+                <li><Link href="#pricing" className="hover:text-white text-neutral-400 transition-colors">Pricing</Link></li>
+                <li><Link href="#testimonials" className="hover:text-white text-neutral-400 transition-colors">Testimonials</Link></li>
+                <li><Link href="#faq" className="hover:text-white text-neutral-400 transition-colors">FAQs</Link></li>
               </ul>
-              
-              {/* LEGAL */}
-              <h4 className="text-[10px] font-bold tracking-[0.25em] text-neutral-500 uppercase mb-6">Legal</h4>
-              <ul className="space-y-4 text-sm font-medium">
-                <li>
-                  <Link href="/privacy" className="hover:text-white text-neutral-400 transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/cookies" className="hover:text-white text-neutral-400 transition-colors">
-                    Cookie Policy
-                  </Link>
-                </li>
-                <li>
-                  <CookiePreferencesButton className="hover:text-white text-neutral-400 transition-colors text-left" />
-                </li>
-                <li>
-                  <Link href="/terms" className="hover:text-white text-neutral-400 transition-colors">
-                    Terms of Service
-                  </Link>
-                </li>
-              </ul>
-              
             </div>
+
+            {/* Col 2: About */}
+            <div className="flex flex-col items-start">
+              <h4 className="text-xs font-semibold text-neutral-500 mb-4 tracking-wider">About</h4>
+              <ul className="space-y-3 text-sm">
+                <li><Link href="#about" className="hover:text-white text-neutral-400 transition-colors">Our Story</Link></li>
+                <li><Link href="#" className="hover:text-white text-neutral-400 transition-colors">Team</Link></li>
+                <li><Link href="#" className="hover:text-white text-neutral-400 transition-colors">Careers</Link></li>
+                <li><Link href="#" className="hover:text-white text-neutral-400 transition-colors">Blog</Link></li>
+                <li><Link href="#" className="hover:text-white text-neutral-400 transition-colors">Press Kit</Link></li>
+              </ul>
+            </div>
+
+            {/* Col 3: Contact */}
+            <div className="flex flex-col items-start">
+              <h4 className="text-xs font-semibold text-neutral-500 mb-4 tracking-wider">Contact</h4>
+              <ul className="space-y-3 text-sm">
+                <li><Link href="/contact" className="hover:text-white text-neutral-400 transition-colors">Contact Us</Link></li>
+                <li><Link href="#" className="hover:text-white text-neutral-400 transition-colors">Support</Link></li>
+                <li><Link href="#" className="hover:text-white text-neutral-400 transition-colors">Live Chat</Link></li>
+                <li><Link href="#" className="hover:text-white text-neutral-400 transition-colors">Help Center</Link></li>
+                <li><Link href="#" className="hover:text-white text-neutral-400 transition-colors">Report Issue</Link></li>
+              </ul>
+            </div>
+
+            {/* Col 4: Legal */}
+            <div className="flex flex-col items-start">
+              <h4 className="text-xs font-semibold text-neutral-500 mb-4 tracking-wider">Legal</h4>
+              <ul className="space-y-3 text-sm">
+                <li><Link href="/privacy" className="hover:text-white text-neutral-400 transition-colors">Privacy Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-white text-neutral-400 transition-colors">Terms of Service</Link></li>
+                <li><Link href="/cookies" className="hover:text-white text-neutral-400 transition-colors">Cookie Policy</Link></li>
+                <li><CookiePreferencesButton className="hover:text-white text-neutral-400 transition-colors text-left" /></li>
+                <li><Link href="#" className="hover:text-white text-neutral-400 transition-colors">Licenses</Link></li>
+                <li><Link href="#" className="hover:text-white text-neutral-400 transition-colors">Security</Link></li>
+              </ul>
+            </div>
+
           </div>
-          
         </div>
-        
-        {/* Bottom Section: Branding & Copyright */}
-        <div className="pt-12 border-t border-neutral-900 flex flex-col items-center justify-center text-center">
-          <div className="flex items-center gap-2.5 mb-4 select-none">
-            <svg className="h-6 w-auto text-white" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 4h30L14 20h20" stroke="white" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span className="font-[family-name:var(--font-new-order)] font-bold text-xl tracking-tight text-white">Zenlio.</span>
-          </div>
+
+        {/* Middle Section: Giant Fading "Zenlio" Text Logo */}
+        <div className="w-full flex justify-center overflow-hidden mb-12 select-none">
+          <h2 className="text-[14vw] font-black tracking-tighter uppercase leading-none font-[family-name:var(--font-grift)] bg-clip-text text-transparent bg-gradient-to-b from-[#ccff00] via-[#526600] to-transparent">
+            Zenlio
+          </h2>
+        </div>
+
+        {/* Bottom Section: Separator + Copyright + Circle Logo Badge */}
+        <div className="pt-8 border-t border-neutral-900 flex flex-col items-center gap-4 text-center">
           <p className="text-xs text-neutral-500">
             © {new Date().getFullYear()} Zenlio. All rights reserved.
           </p>
+          
+          {/* Circular Z Logo Badge */}
+          <div className="w-8 h-8 rounded-full border border-[#ccff00] flex items-center justify-center select-none shadow-[0_0_10px_rgba(204,255,0,0.1)]">
+            <span className="text-[#ccff00] font-sans font-bold text-xs tracking-wide">Z</span>
+          </div>
         </div>
+
       </div>
     </footer>
   );
