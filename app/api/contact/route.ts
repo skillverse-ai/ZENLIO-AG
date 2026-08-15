@@ -90,13 +90,36 @@ Submitted:
 ${submissionDate}`;
 
     // 3. Send Email
-    const response = await resend.emails.send({
+    let response = await resend.emails.send({
       from: senderEmail,
       to: contactEmail,
       subject: 'New Contact Form Submission — Zenlio',
       text: emailText,
       replyTo: sanitizedEmail,
     });
+
+    // Sandbox fallback: If Resend restricts sending to the registered account email only
+    if (response.error) {
+      const errorMsg = response.error.message;
+      if (
+        response.error.name === 'validation_error' &&
+        errorMsg.includes('You can only send testing emails to your own email address')
+      ) {
+        const match = errorMsg.match(/\(([^)]+)\)/);
+        if (match && match[1]) {
+          const fallbackEmail = match[1];
+          console.warn(`[Resend Sandbox Fallback]: Re-routing email to registered address: ${fallbackEmail}`);
+          
+          response = await resend.emails.send({
+            from: senderEmail,
+            to: fallbackEmail,
+            subject: 'New Contact Form Submission — Zenlio (Sandbox Mode)',
+            text: emailText,
+            replyTo: sanitizedEmail,
+          });
+        }
+      }
+    }
 
     if (response.error) {
       console.error("CONTACT FORM ERROR:", response.error);
