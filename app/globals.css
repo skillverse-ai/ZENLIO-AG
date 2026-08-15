@@ -1,0 +1,217 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-grift), ui-sans-serif, system-ui, sans-serif;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  
+  /* Zenlio Brand Colors */
+  --color-brand-black: var(--color-black);
+  --color-brand-black-soft: var(--color-black-soft);
+  --color-brand-white: var(--color-white);
+  --color-brand-white-soft: var(--color-white-soft);
+  --color-brand-muted: var(--color-muted);
+  --color-brand-muted-dark: var(--color-muted-dark);
+  --color-brand-border: var(--color-border);
+  --color-brand-border-dark: var(--color-border-dark);
+  --color-brand-accent: var(--color-accent);
+  --color-brand-accent-hover: var(--color-accent-hover);
+  --color-brand-accent-tint: var(--color-accent-tint);
+  --color-brand-accent-tint-dark: var(--color-accent-tint-dark);
+  --color-brand-on-accent: var(--color-on-accent);
+}
+
+:root {
+  /* Zenlio Raw Colors */
+  --color-black: #0C0C0C;
+  --color-black-soft: #17170F;
+  --color-white: #F4F4EC;
+  --color-white-soft: #EAEADC;
+  --color-muted: #6B6B60;
+  --color-muted-dark: #9C9C90;
+  --color-border: #DEDED0;
+  --color-border-dark: #2A2A22;
+  --color-accent: #CCFF00;
+  --color-accent-hover: #C3D93F;
+  --color-accent-tint: #F4F7DC;
+  --color-accent-tint-dark: #2B2E12;
+  --color-on-accent: #0C0C0C;
+
+  /* shadcn mappings - Light Mode */
+  --background: var(--color-white);
+  --foreground: var(--color-black);
+  
+  --card: var(--color-white-soft);
+  --card-foreground: var(--color-black);
+  
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-black);
+  
+  --primary: var(--color-accent);
+  --primary-foreground: var(--color-on-accent);
+  
+  --secondary: var(--color-white-soft);
+  --secondary-foreground: var(--color-black);
+  
+  --muted: var(--color-white-soft);
+  --muted-foreground: var(--color-muted);
+  
+  --accent: var(--color-accent-tint);
+  --accent-foreground: var(--color-on-accent);
+  
+  --destructive: #ef4444; /* red-500 fallback */
+  --destructive-foreground: var(--color-white);
+
+  --border: var(--color-border);
+  --input: var(--color-border);
+  --ring: var(--color-accent);
+  
+  --radius: 0.125rem; /* 2px */
+}
+
+.dark {
+  /* shadcn mappings - Dark Mode */
+  --background: var(--color-black);
+  --foreground: var(--color-white);
+  
+  --card: var(--color-black-soft);
+  --card-foreground: var(--color-white);
+  
+  --popover: var(--color-black);
+  --popover-foreground: var(--color-white);
+  
+  --primary: var(--color-accent);
+  --primary-foreground: var(--color-on-accent);
+  
+  --secondary: var(--color-black-soft);
+  --secondary-foreground: var(--color-white);
+  
+  --muted: var(--color-black-soft);
+  --muted-foreground: var(--color-muted-dark);
+  
+  --accent: var(--color-accent-tint-dark);
+  --accent-foreground: var(--color-white);
+  
+  --destructive: #7f1d1d; /* red-900 fallback */
+  --destructive-foreground: var(--color-white);
+
+  --border: var(--color-border-dark);
+  --input: var(--color-border-dark);
+  --ring: var(--color-accent);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  html {
+    font-family: var(--font-sans);
+  }
+  
+  /* Typography Scale base */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Custom Sleek Green Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0c0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccff00;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b3e600;
+}
+
+::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ccff00 #0c0c0c;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+/* Global Bento Card Design System */
+.bento-card {
+  background: #171717 !important;
+  border-radius: 25px !important;
+  border: 1px solid #29292d !important;
+  box-shadow: inset -1px -3px 4px rgba(0, 0, 0, 0.30), 0 3px 4px 3px rgba(0, 0, 0, 0.30) !important;
+  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease !important;
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(204, 255, 0, 0.3) !important;
+  box-shadow: inset -1px -3px 4px rgba(0, 0, 0, 0.30), 0 6px 12px 4px rgba(0, 0, 0, 0.40) !important;
+}
+
+.bento-card.bento-card-active,
+.bento-card-active {
+  border-color: #CCFF00 !important;
+  box-shadow: inset -1px -3px 4px rgba(0, 0, 0, 0.30), 0 0 15px rgba(204, 255, 0, 0.15), 0 3px 4px 3px rgba(0, 0, 0, 0.30) !important;
+}
