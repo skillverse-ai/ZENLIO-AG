@@ -55,7 +55,8 @@ export async function POST(request: Request) {
     const senderEmail = process.env.SENDER_EMAIL || 'onboarding@resend.dev';
 
     if (!apiKey) {
-      console.error('RESEND_API_KEY is not defined in environment variables');
+      const errorMsg = 'RESEND_API_KEY is not defined in environment variables';
+      console.error("CONTACT FORM ERROR:", new Error(errorMsg));
       return NextResponse.json(
         { success: false, message: 'Unable to send message due to missing configuration' },
         { status: 500 }
@@ -98,7 +99,7 @@ ${submissionDate}`;
     });
 
     if (response.error) {
-      console.error('Resend API error:', response.error);
+      console.error("CONTACT FORM ERROR:", response.error);
       return NextResponse.json(
         { success: false, message: 'Unable to send message' },
         { status: 500 }
@@ -110,7 +111,7 @@ ${submissionDate}`;
       message: 'Message sent successfully',
     });
   } catch (err) {
-    console.error('Error handling contact form submission:', err);
+    console.error("CONTACT FORM ERROR:", err);
     return NextResponse.json(
       { success: false, message: 'Unable to send message' },
       { status: 500 }
