@@ -23,8 +23,13 @@ export function Footer() {
               href="/contact" 
               className="mt-2 flex items-center gap-3 bg-neutral-950 hover:bg-neutral-900 border border-neutral-800 rounded-xl py-2.5 px-4 transition-colors cursor-pointer group shadow-lg"
             >
-              <div className="w-6 h-6 bg-[#ccff00] rounded-lg flex items-center justify-center text-black font-extrabold text-[11px] shadow-sm select-none">
-                Z
+              <div className="w-6 h-6 bg-[#ccff00] rounded-lg flex items-center justify-center text-black shadow-sm select-none p-1 shrink-0">
+                <svg className="w-4.5 h-auto text-black" viewBox="0 0 72 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15,5 h35 l6,14 h-8 l-4,-9 h-35 l6,-5 z" fill="currentColor" />
+                  <g transform="rotate(180 36 17)">
+                    <path d="M15,5 h35 l6,14 h-8 l-4,-9 h-35 l6,-5 z" fill="currentColor" />
+                  </g>
+                </svg>
               </div>
               <span className="text-sm font-semibold text-white tracking-wide">
                 Get started
@@ -101,8 +106,13 @@ export function Footer() {
           </p>
           
           {/* Circular Z Logo Badge */}
-          <div className="w-8 h-8 rounded-full border border-[#ccff00] flex items-center justify-center select-none shadow-[0_0_10px_rgba(204,255,0,0.1)]">
-            <span className="text-[#ccff00] font-sans font-bold text-xs tracking-wide">Z</span>
+          <div className="w-10 h-10 rounded-full border border-[#ccff00]/40 flex items-center justify-center select-none shadow-[0_0_15px_rgba(204,255,0,0.05)] bg-neutral-950">
+            <svg className="w-5.5 h-auto text-[#ccff00]" viewBox="0 0 72 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15,5 h35 l6,14 h-8 l-4,-9 h-35 l6,-5 z" fill="currentColor" />
+              <g transform="rotate(180 36 17)">
+                <path d="M15,5 h35 l6,14 h-8 l-4,-9 h-35 l6,-5 z" fill="currentColor" />
+              </g>
+            </svg>
           </div>
         </div>
 
