@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Navbar } from "@/components/sections/Navbar";
+import { CookieConsentProvider } from "@/components/cookie-consent/CookieConsentContext";
+import { CookieConsentBanner } from "@/components/cookie-consent/CookieConsentBanner";
+import { CookiePreferencesModal } from "@/components/cookie-consent/CookiePreferencesModal";
 import "./globals.css";
 
 const grift = localFont({
@@ -36,8 +39,12 @@ export default function RootLayout({
       className={`${grift.variable} ${newOrder.variable} dark antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">
-        <Navbar />
-        {children}
+        <CookieConsentProvider>
+          <Navbar />
+          {children}
+          <CookieConsentBanner />
+          <CookiePreferencesModal />
+        </CookieConsentProvider>
       </body>
     </html>
   );

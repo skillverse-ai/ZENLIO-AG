@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { CookiePreferencesButton } from "@/components/cookie-consent/CookiePreferencesButton";
 
 export function Footer() {
   return (
@@ -42,6 +43,8 @@ export function Footer() {
           <p>© {new Date().getFullYear()} Zenlio. All rights reserved.</p>
           <div className="flex space-x-4">
             <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link href="/cookies" className="hover:text-foreground transition-colors">Cookie Policy</Link>
+            <CookiePreferencesButton className="hover:text-foreground transition-colors" />
             <Link href="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link>
           </div>
         </div>
