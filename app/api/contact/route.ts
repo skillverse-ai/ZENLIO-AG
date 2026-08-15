@@ -129,6 +129,37 @@ ${submissionDate}`;
       );
     }
 
+    // 4. Send Confirmation Copy to the Visitor (Auto-Responder)
+    try {
+      const visitorEmailText = `Hi ${sanitizedName},
+
+Thank you for reaching out to Zenlio! We have received your message and our team will get back to you soon.
+
+Here is a copy of your submission:
+
+Name: ${sanitizedName}
+Email: ${sanitizedEmail}
+Phone: ${sanitizedPhone}
+Message:
+${sanitizedMessage}
+
+Best regards,
+The Zenlio Team`;
+
+      const visitorResponse = await resend.emails.send({
+        from: senderEmail,
+        to: sanitizedEmail,
+        subject: 'Thank you for contacting Zenlio',
+        text: visitorEmailText,
+      });
+
+      if (visitorResponse.error) {
+        console.warn('[Resend Warning]: Could not send auto-response email to visitor:', visitorResponse.error.message);
+      }
+    } catch (visitorErr) {
+      console.warn('[Resend Error]: Failed to send auto-response email to visitor:', visitorErr);
+    }
+
     return NextResponse.json({
       success: true,
       message: 'Message sent successfully',
