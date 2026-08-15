@@ -1,6 +1,27 @@
 import Link from "next/link";
 import { CookiePreferencesButton } from "@/components/cookie-consent/CookiePreferencesButton";
 
+const ZenlioLogo = () => (
+  <svg className="w-16 h-10 select-none" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="silver-top" x1="20" y1="16" x2="58" y2="28" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#ffffff" />
+        <stop offset="40%" stopColor="#f5f5f7" />
+        <stop offset="100%" stopColor="#a1a1aa" />
+      </linearGradient>
+      <linearGradient id="silver-bottom" x1="42" y1="22" x2="80" y2="34" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#52525b" />
+        <stop offset="60%" stopColor="#d4d4d8" />
+        <stop offset="100%" stopColor="#ffffff" />
+      </linearGradient>
+    </defs>
+    {/* Top part */}
+    <path d="M20 16h32l6 12H46l-3-6H23z" fill="url(#silver-top)" />
+    {/* Bottom part */}
+    <path d="M80 34H48l-6-12h12l3 6h23z" fill="url(#silver-bottom)" />
+  </svg>
+);
+
 export function Footer() {
   return (
     <footer className="w-full bg-black text-foreground border-t border-neutral-900 pt-20 pb-12 font-[family-name:var(--font-grift)]">
@@ -11,9 +32,9 @@ export function Footer() {
           
           {/* Brand Info (Left Pane) - Spans 4 cols on large screens */}
           <div className="lg:col-span-4 flex flex-col items-start gap-4">
-            <span className="font-[family-name:var(--font-new-order)] font-bold text-2xl tracking-tight text-white">
-              Zenlio
-            </span>
+            <Link href="/" className="inline-block transition-opacity hover:opacity-90">
+              <ZenlioLogo />
+            </Link>
             <p className="text-sm text-neutral-400 max-w-xs leading-relaxed">
               We build the operating system your business runs on — site, CRM, and AI automation.
             </p>
@@ -23,13 +44,8 @@ export function Footer() {
               href="/contact" 
               className="mt-2 flex items-center gap-3 bg-neutral-950 hover:bg-neutral-900 border border-neutral-800 rounded-xl py-2.5 px-4 transition-colors cursor-pointer group shadow-lg"
             >
-              <div className="w-6 h-6 bg-[#ccff00] rounded-lg flex items-center justify-center text-black shadow-sm select-none p-1 shrink-0">
-                <svg className="w-4.5 h-auto text-black" viewBox="0 0 72 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15,5 h35 l6,14 h-8 l-4,-9 h-35 l6,-5 z" fill="currentColor" />
-                  <g transform="rotate(180 36 17)">
-                    <path d="M15,5 h35 l6,14 h-8 l-4,-9 h-35 l6,-5 z" fill="currentColor" />
-                  </g>
-                </svg>
+              <div className="w-6 h-6 bg-[#ccff00] rounded-lg flex items-center justify-center text-black font-extrabold text-[11px] shadow-sm select-none">
+                Z
               </div>
               <span className="text-sm font-semibold text-white tracking-wide">
                 Get started
@@ -94,7 +110,7 @@ export function Footer() {
 
         {/* Middle Section: Giant Fading "Zenlio" Text Logo */}
         <div className="w-full flex justify-center overflow-hidden mb-12 select-none">
-          <h2 className="text-[14vw] font-black tracking-tighter uppercase leading-none font-[family-name:var(--font-grift)] bg-clip-text text-transparent bg-gradient-to-b from-[#ccff00] via-[#526600] to-transparent">
+          <h2 className="text-[14vw] font-black tracking-tighter uppercase leading-none font-[family-name:var(--font-grift)] bg-clip-text text-transparent bg-gradient-to-b from-[#ccff00] via-[#242e00] to-transparent">
             Zenlio
           </h2>
         </div>
@@ -106,13 +122,8 @@ export function Footer() {
           </p>
           
           {/* Circular Z Logo Badge */}
-          <div className="w-10 h-10 rounded-full border border-[#ccff00]/40 flex items-center justify-center select-none shadow-[0_0_15px_rgba(204,255,0,0.05)] bg-neutral-950">
-            <svg className="w-5.5 h-auto text-[#ccff00]" viewBox="0 0 72 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M15,5 h35 l6,14 h-8 l-4,-9 h-35 l6,-5 z" fill="currentColor" />
-              <g transform="rotate(180 36 17)">
-                <path d="M15,5 h35 l6,14 h-8 l-4,-9 h-35 l6,-5 z" fill="currentColor" />
-              </g>
-            </svg>
+          <div className="w-8 h-8 rounded-full border border-[#ccff00] flex items-center justify-center select-none shadow-[0_0_10px_rgba(204,255,0,0.1)]">
+            <span className="text-[#ccff00] font-sans font-bold text-xs tracking-wide">Z</span>
           </div>
         </div>
 
